@@ -1,0 +1,21 @@
+<app-menu></app-menu>
+<div class="component" style="width: 80%; margin-left: 10%;">
+    <table class="table">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>SAT</th>
+            <th>GPA</th>
+            <th>Major</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of students | sort:'name'">
+                <td>{{s.id}}</td>
+                <td>{{s.name}}</td>
+                <td>{{s.sat}}</td>
+                <td>{{s.gpa}}</td>
+                <td>{{s.major != null ? s.major.name : "---undeclared---"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
