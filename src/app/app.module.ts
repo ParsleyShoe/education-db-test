@@ -16,6 +16,9 @@ import { StudentDetailComponent } from './student/student-detail/student-detail.
 import { StudentEditComponent } from './student/student-edit/student-edit.component';
 import { SortPipe } from './pipes/sort.pipe';
 import { MenuItemComponent } from './menu/menu-item/menu-item.component';
+import { MajorCodeCheckComponent } from './major/major-code-check/major-code-check.component';
+import { MajorSearchPipe } from './major/major-search.pipe';
+import { StudentSearchPipe } from './student/student-search.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { MenuItemComponent } from './menu/menu-item/menu-item.component';
     StudentDetailComponent,
     StudentEditComponent,
     SortPipe,
-    MenuItemComponent
+    MenuItemComponent,
+    MajorCodeCheckComponent,
+    MajorSearchPipe,
+    StudentSearchPipe
   ],
   imports: [
     BrowserModule,

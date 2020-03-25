@@ -1,6 +1,13 @@
 <app-menu></app-menu>
-<a routerLink="/students/create" class="btn btn-primary" style="margin: 12px 0;">Create</a>
 <div class="component listhah">
+    <table class="table">
+        <tr>
+            <td>
+                <a routerLink="/students/create" class="btn btn-primary" style="margin: 12px 1rem 12px 0;">+ Add New Student</a>
+                <input [(ngModel)]="searchCriteria" type="text" placeholder="Search...">
+            </td>
+        </tr>
+    </table>
     <table class="table">
         <thead>
             <th>Id</th>
@@ -11,7 +18,7 @@
             <th>Actions</th>
         </thead>
         <tbody>
-            <tr *ngFor="let s of students | sort:'name'">
+            <tr *ngFor="let s of students | studentSearch:searchCriteria | sort:'name'">
                 <td>{{s.id}}</td>
                 <td>{{s.name}}</td>
                 <td>{{s.sat}}</td>

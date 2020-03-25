@@ -1,6 +1,17 @@
 <app-menu></app-menu>
-<a routerLink="/majors/create" class="btn btn-primary" style="margin: 12px 0;">Create</a>
+<!-- <div style="vertical-align: middle;">
+    <a routerLink="/majors/create" class="btn btn-primary" style="margin: 12px 0;">+ Add New Major</a>
+    <input [(ngModel)]="searchCriteria" type="text">
+</div> -->
 <div class="component listhah">
+    <table class="table">
+        <tr>
+            <td>
+                <a routerLink="/majors/create" class="btn btn-primary" style="margin: 12px 1rem 12px 0;">+ Add New Major</a>
+                <input [(ngModel)]="searchCriteria" type="text" placeholder="Search...">
+            </td>
+        </tr>
+    </table>
     <table class="table">
         <thead>
             <th>Id</th>
@@ -10,7 +21,7 @@
             <th>Actions</th>
         </thead>
         <tbody>
-            <tr *ngFor="let m of majors | sort:'code'">
+            <tr *ngFor="let m of majors | majorSearch:searchCriteria | sort:'code'">
                 <td>{{m.id}}</td>
                 <td>{{m.code}}</td>
                 <td>{{m.name}}</td>

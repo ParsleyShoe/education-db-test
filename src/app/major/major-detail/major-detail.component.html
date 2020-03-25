@@ -4,30 +4,31 @@
         <tr>
             <td>Id</td>
             <td>
-                <input [(ngModel)]="major.id" type="text" disabled>
+                <input [ngModel]="major.id" type="text" disabled>
             </td>
         </tr>
         <tr>
             <td>Code</td>
             <td>
-                <input [(ngModel)]="major.code" type="text" disabled>
+                <input [ngModel]="major.code" type="text" disabled>
             </td>
         </tr>
         <tr>
             <td>Name</td>
             <td>
-                <input [(ngModel)]="major.name" type="text" disabled>
+                <input [ngModel]="major.name" type="text" disabled>
             </td>
         </tr>
         <tr>
             <td>Min SAT</td>
             <td>
-                <input [(ngModel)]="major.minSat" type="text" disabled>
+                <input [ngModel]="major.minSat" type="text" disabled>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <button (click)="delete()" class="btn btn-danger">Delete</button>
+                <button (click)="delete()" class="btn btn-danger" style="margin-right: 0.75rem;">Delete</button>
+                <button (click)="updateSat()" class="btn btn-warning">Increase Min SAT</button>
             </td>
         </tr>
     </table>

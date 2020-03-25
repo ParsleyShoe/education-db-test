@@ -11,6 +11,19 @@ import { Major } from '../major.class';
 export class MajorDetailComponent implements OnInit {
   major:Major = new Major();
 
+  updateSat():void {
+    if (this.major.minSat > 1000) this.major.minSat += 50;
+    else this.major.minSat += 100;
+    this.majorsvc.change(this.major).subscribe(
+      res => {
+        console.debug("Success!", res)
+      },
+      err => {
+        console.error("Error: ", err)
+      }
+    );
+  };
+
   delete():void {
     this.majorsvc.remove(this.major).subscribe(
       res => {

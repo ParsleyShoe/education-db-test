@@ -1,0 +1,22 @@
+<app-menu></app-menu>
+<div class="component nonlisthah code-check">
+    <table class="table table-striped">
+        <tr>
+            <th colspan="3">Enter a major code to see if it exists.</th>
+        </tr>
+        <tr>
+            <td class="right-align">Code:</td>
+            <td>
+                <input [(ngModel)]="major.code" type="text">
+            </td>
+            <td colspan="2">
+                <button (click)="check()" class="btn btn-primary btn-sm">Check</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label [style.color]="color">{{message}}</label>
+            </td>
+        </tr>
+    </table>
+</div>
