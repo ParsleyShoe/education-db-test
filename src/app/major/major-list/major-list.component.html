@@ -1,11 +1,13 @@
 <app-menu></app-menu>
-<div class="component" style="width: 80%; margin-left: 10%;">
+<a routerLink="/majors/create" class="btn btn-primary" style="margin: 12px 0;">Create</a>
+<div class="component listhah">
     <table class="table">
         <thead>
             <th>Id</th>
             <th>Code</th>
             <th>Name</th>
             <th>Min. SAT</th>
+            <th>Actions</th>
         </thead>
         <tbody>
             <tr *ngFor="let m of majors | sort:'code'">
@@ -13,6 +15,10 @@
                 <td>{{m.code}}</td>
                 <td>{{m.name}}</td>
                 <td>{{m.minSat}}</td>
+                <td>
+                    <a routerLink="/majors/detail/{{m.id}}">Detail</a> | 
+                    <a routerLink="/majors/edit/{{m.id}}">Edit</a>
+                </td>
             </tr>
         </tbody>
     </table>

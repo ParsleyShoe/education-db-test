@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StudentService } from '../student.service';
+import { Student } from '../student.class';
 
 @Component({
   selector: 'app-student-detail',
@@ -6,10 +9,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-detail.component.css']
 })
 export class StudentDetailComponent implements OnInit {
+  student:Student = new Student();
 
-  constructor() { }
+  delete():void {
+    this.studentsvc.remove(this.student).subscribe(
+      res => {
+        console.debug("Successfully deleted.", res);
+        this.router.navigateByUrl("/students/list");
+      },
+      err => {
+        console.error("Error deleting student: ", err);
+      }
+    );
+  };
+
+  constructor(
+    private route:ActivatedRoute,
+    private studentsvc:StudentService,
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
+    let id = this.route.snapshot.params.id; //reads url and binds value of id
+    this.studentsvc.get(id).subscribe(
+      res => {
+        this.student = res;
+        console.debug("Student: ", res);
+      },
+      err => {
+        console.error("Error calling Student.get(): ", err);
+      }
+    );
   }
 
 }

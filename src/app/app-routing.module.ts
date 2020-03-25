@@ -12,14 +12,14 @@ import { StudentEditComponent } from './student/student-edit/student-edit.compon
 
 const routes: Routes = [
   { path: "", redirectTo: "/majors/list", pathMatch: "full" },
-  { path: "majors/list", component: MajorListComponent },
-  { path: "majors/edit", component: MajorEditComponent },
   { path: "majors/create", component: MajorCreateComponent },
-  { path: "majors/detail/:id", component: MajorDetailComponent },
-  { path: "students/list", component: StudentListComponent },
   { path: "students/create", component: StudentCreateComponent },
-  { path: "students/detail", component: StudentDetailComponent },
-  { path: "students/edit", component: StudentEditComponent },
+  { path: "majors/list", component: MajorListComponent },
+  { path: "students/list", component: StudentListComponent },
+  { path: "majors/edit/:id", component: MajorEditComponent },
+  { path: "students/edit/:id", component: StudentEditComponent },
+  { path: "majors/detail/:id", component: MajorDetailComponent },
+  { path: "students/detail/:id", component: StudentDetailComponent },
   { path: "**", component: MajorListComponent }
 ];
 

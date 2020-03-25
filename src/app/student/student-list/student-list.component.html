@@ -1,5 +1,6 @@
 <app-menu></app-menu>
-<div class="component" style="width: 80%; margin-left: 10%;">
+<a routerLink="/students/create" class="btn btn-primary" style="margin: 12px 0;">Create</a>
+<div class="component listhah">
     <table class="table">
         <thead>
             <th>Id</th>
@@ -7,6 +8,7 @@
             <th>SAT</th>
             <th>GPA</th>
             <th>Major</th>
+            <th>Actions</th>
         </thead>
         <tbody>
             <tr *ngFor="let s of students | sort:'name'">
@@ -15,6 +17,10 @@
                 <td>{{s.sat}}</td>
                 <td>{{s.gpa}}</td>
                 <td>{{s.major != null ? s.major.name : "---undeclared---"}}</td>
+                <td>
+                    <a routerLink="/students/detail/{{s.id}}">Detail</a> | 
+                    <a routerLink="/students/edit/{{s.id}}">Edit</a>
+                </td>
             </tr>
         </tbody>
     </table>

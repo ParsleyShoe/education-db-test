@@ -12,6 +12,18 @@ export class StudentService {
   list():Observable<Student[]> {
     return this.http.get(`${url}`) as Observable<Student[]>;
   };
+  get(id:any):Observable<Student> {
+    return this.http.get(`${url}/${id}`) as Observable<Student>;
+  };
+  create(major:Student):Observable<Student> {
+    return this.http.post(`${url}`, major) as Observable<Student>;
+  };
+  change(major:Student):Observable<any> {
+    return this.http.put(`${url}/${major.id}`, major) as Observable<any>;
+  };
+  remove(major:Student):Observable<any> {
+    return this.http.delete(`${url}/${major.id}`) as Observable<any>;
+  };
 
   constructor(
     private http:HttpClient

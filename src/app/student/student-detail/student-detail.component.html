@@ -1,1 +1,48 @@
-<p>student-detail works!</p>
+<app-menu></app-menu>
+<div class="component nonlisthah">
+    <table class="table table-striped">
+        <tr>
+            <td>Id</td>
+            <td>
+                <input [ngModel]="student.id" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+                <input [ngModel]="student.name" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td>SAT</td>
+            <td>
+                <input [ngModel]="student.sat" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td>GPA</td>
+            <td>
+                <input [ngModel]="student.gpa" type="text" disabled>
+            </td>
+        </tr>
+        <!-- this <tr> tag only displays after the major instance is loaded -->
+        <tr *ngIf="student.major">
+            <td>Major</td>
+            <td>
+                <input [ngModel]="student.major.name" type="text" disabled>
+            </td>
+        </tr>
+        <!-- this <tr> tag only displays if major is null -->
+        <tr *ngIf="!student.major">
+            <td>Major</td>
+            <td>
+                <input value="UNDECLARED" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="delete()" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
